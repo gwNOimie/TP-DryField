@@ -1,0 +1,19 @@
+{
+  "name": "tp-dryfield",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gwNOimie/TP-DryField.git"
+  },
+  "author": "Gaëtan Kemayou, Gwenaël Henot",
+  "license": "Beerware",
+  "bugs": {
+    "url": "https://github.com/gwNOimie/TP-DryField/issues"
+  },
+  "homepage": "https://github.com/gwNOimie/TP-DryField#readme"
+}
