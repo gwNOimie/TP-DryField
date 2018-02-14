@@ -1,13 +1,23 @@
+const Score = require('../models/scoreModel');
+
 class ScoreController {
 
     saveScore(req, res) {
-        console.log('in the save method !!')
-        res.json({player: "Gaetan", score: 100, message: "awesome victory"})
+        const playerName = req.body.playerName;
+        const playerScore = req.body.playerScore;
+
+        var score = new Score({ name: playerName, score: playerScore });
+        score.save((err, result) => {
+            if(err) return console.error(err);
+            return console.log('Game successfuly added ====> '+ result);
+        })
     }
 
-    viewScore(req, res) {
-        console.log('in the view method')
-        res.json({player: "Gaetan", score: 100})
+    getScore(req, res) {
+        Score.find((err, result) => {
+            if(err) return console.error(err);
+            res.json(result);
+        })
     }
 }
 

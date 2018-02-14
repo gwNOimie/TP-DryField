@@ -4,7 +4,7 @@ const ScoreController = require('../controllers/scoreController');
 const scoreController = new ScoreController();
 
 /* GET the scores */
-router.get('/', scoreController.viewScore);
+router.get('/', scoreController.getScore);
 
 /* POST the scores */
 router.post('/', scoreController.saveScore)
