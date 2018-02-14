@@ -8,14 +8,15 @@ class ScoreController {
 
         var score = new Score({ name: playerName, score: playerScore });
         score.save((err, result) => {
-            if(err) return console.error(err);
-            return console.log('Game successfuly added ====> '+ result);
+            if(err) res.status(500).send(err);
+            console.log('Game saved successfuly ====> '+ result);
+            res.send('Game saved.')
         })
     }
 
     getScore(req, res) {
         Score.find((err, result) => {
-            if(err) return console.error(err);
+            if(err) res.status(500).send(err);
             res.json(result);
         })
     }
