@@ -1,13 +1,13 @@
-var express = require('express');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
-var score = require('./routes/scoreRoutes');
+const score = require('./routes/scoreRoutes');
 
-var mongoose =  require('./db/db');
+require('./db/db');
 
-var app = express();
+const app = express();
 
 app.use(logger('dev'));
 app.use(bodyParser.json());

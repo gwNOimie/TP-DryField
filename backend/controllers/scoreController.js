@@ -11,15 +11,14 @@ class ScoreController {
         const playerScore = req.body.playerScore;
 
         var score = new Score({ name: playerName, score: playerScore });
-        score.save((err, result) => {
-            if (err) {
-                res.status(500).send(err)
-            } else {
-                console.log('Game saved successfuly !');
-                res.send('Game saved.')
-            }
+        score.save().then((result) => {
+            console.info('Game saved successfuly !', result);
+            res.send('Game saved.')
+        }).catch((err) => {
+            res.status(500).send(err)
         })
     }
+
 
     getScore(req, res) {
         Score.find((err, result) => {
