@@ -1,0 +1,16 @@
+<div class="modal-header">
+  <h4 class="modal-title">Shop</h4>
+</div>
+<div class="modal-body">
+  <h1>Avant achat</h1>
+  Argent disponible : {{initialCash | async}} / Contenu de la reserve globale : {{initialGlobalWater | async}}
+  <h1>Après achat</h1>
+  Argent disponible : {{(initialCash | async) - cart}} / Contenu de la reserve globale : {{(initialGlobalWater | async) + cart}}
+  <button class="btn btn-primary" [disabled]="cart <= 0" (click)="removeWaterFromCart()">-</button>
+  <input type="number" [(ngModel)]="cart">
+  <button class="btn btn-primary" [disabled]="cart >= (initialCash | async)" (click)="addWaterToCart()">+</button>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" [disabled]="cart <= 0 || cart > (initialCash | async)" (click)="validate()">Save</button>
+  <button type="button" class="btn btn-primary" (click)="cancel()">Cancel</button>
+</div>

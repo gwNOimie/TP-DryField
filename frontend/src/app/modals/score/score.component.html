@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <h4 class="modal-title">Sauvegarde du score</h4>
+</div>
+<div class="modal-body">
+  <label>Score
+    <p>{{score | async}}</p>
+  </label>
+  <label>Nom
+    <input type="text" [(ngModel)]="name">
+  </label>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="saveScore()" [disabled]="!name">Enregistrer</button>
+  <button type="button" class="btn btn-primary" (click)="cancel()">Annuler</button>
+</div>

@@ -1,0 +1,51 @@
+<div class="row align-items-center">
+  <div class="col mh-5 ph-5">
+    <div class="row justify-content-center">
+      <div *ngIf="playing | async" class="container-fluid ">
+        <div class="row">
+          <h1>Jeu en cours</h1>
+        </div>
+        <div class="row mt-5">
+          Temps écoulé : {{playTime | async}}
+        </div>
+        <div class="row mt-5">
+          Argent disponible : {{cash | async}}
+        </div>
+        <div class="row mt-5">
+          <div class="col">
+            Reserve globale : {{globalWater | async}}
+          </div>
+          <div class="col">
+            <button class="btn btn-primary" (click)="openShop()" [disabled]="(cash | async) < waterPrice">Acheter de l'eau</button>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col" *ngFor="let field of fields | async; let ii = index">
+            <div class="row mt-5">
+              <h3>Champ {{ii + 1}}</h3>
+            </div>
+            <div class="row mt-5">
+              Temps restant avant recolte : {{harvestTime - field.age}}
+            </div>
+            <div class="row mt-5">
+              Reserve d'eau : {{field.water}}
+            </div>
+            <div *ngIf="field.isAlive && field.age < harvestTime" class="row mt-5">
+              <button class="btn btn-primary" disabled>En cours de pousse</button>
+            </div>
+            <div *ngIf="field.isAlive && field.age >= harvestTime" class="row mt-5">
+              <button class="btn btn-success" (click)="harvest(ii)">Récolter</button>
+            </div>
+            <div *ngIf="!field.isAlive" class="row mt-5">
+              <button class="btn btn-danger" disabled>Asséché</button>
+            </div>
+            <div class="row mt-5">
+              <button class="btn btn-primary" (click)="addWater(ii)" [disabled]="(globalWater | async) <= 0">Ajouter de l'eau</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-lg btn-block" (click)="showGameIntro()" *ngIf="!(playing | async)">Démarrer une nouvelle partie</button>
+    </div>
+  </div>
+</div>
