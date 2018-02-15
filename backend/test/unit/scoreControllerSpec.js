@@ -19,12 +19,13 @@ describe('get scores', () => {
             // status(code) { return 500 },
             // send(err) { return "Error during getting scores" },
             json(result) {
-                assert.equal(result, listScores)
+                assert.equal(result, listScores);
             }
         }
+        // on mock le modèle (mongoose model) à passer au controller
         const score = {
             find(callback) {
-                callback(null, 'plop');
+                callback(null, listScores);
             }
         }
         const scoreController = new ScoreController(score);
@@ -42,32 +43,47 @@ describe('save scores', () => {
         }
 
         const res = {
-            json(result) {
-                it('plop', () => {
-                    console.log('plop')
-                })
-                assert.equals(result, 15)
+            send(result) {
+                assert.equal(result, 'Game saved.')
             }
         }
-        const scoreController = new ScoreController();
+        class Score {
+            constructor(obj) {
+                obj.save = (callback) => {
+                    return callback(null, Promise.resolve())
+                }
+                return obj;
+            }
+        }
+        const scoreController = new ScoreController(Score);
+        scoreController.saveScore(req, res)
+    }),
+    it('should return a status 500 when datas are wrong', () => {
+        const req = {
+            body: {
+                playerName: false,
+                playerScore: true
+            }
+        }
+
+        const res = {
+            send(err) {
+                assert.equal(err, 'error')
+            },
+            status(code) { 
+                assert.equal(code, 500);
+                return this;
+            }
+        }
+        class Score {
+            constructor(obj) {
+                obj.save = (callback) => {
+                    return callback('error')
+                }
+                return obj;
+            }
+        }
+        const scoreController = new ScoreController(Score);
         scoreController.saveScore(req, res)
     })
-    // ,
-    // it('should return an error where datas are wrong', () => {
-    //     const req = {
-    //         body: {
-    //             playerName: false,
-    //             playerScore: true
-    //         }
-    //     }
-
-    //     const res = {
-    //         // status(code) { return 500 },
-    //         // send(err) { return "Error during getting scores" }
-    //         json(result) {
-    //             assert.equal(req.body, result)
-    //         }
-    //     }
-    //     scoreController.saveScore(req, res)
-    // })
 })

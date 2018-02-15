@@ -1,3 +1,4 @@
+// mongoose model
 let Score;
 
 class ScoreController {
@@ -11,16 +12,22 @@ class ScoreController {
 
         var score = new Score({ name: playerName, score: playerScore });
         score.save((err, result) => {
-            if (err) res.status(500).send(err);
-            console.log('Game saved successfuly ====> ' + result);
-            res.send('Game saved.')
+            if (err) {
+                res.status(500).send(err)
+            } else {
+                console.log('Game saved successfuly !');
+                res.send('Game saved.')
+            }
         })
     }
 
     getScore(req, res) {
         Score.find((err, result) => {
-            if (err) res.status(500).send(err);
-            res.json(result);
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.json(result);
+            }
         })
     }
 }
