@@ -57,9 +57,7 @@ export class GameService {
     return this._harvestTime;
   }
 
-  constructor(
-    private modalService: NgbModal,
-  ) { }
+  constructor() { }
 
   initGame() {
     if (this._gameIsOver.getValue()) {

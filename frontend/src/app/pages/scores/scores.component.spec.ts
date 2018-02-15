@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+import { BackendService } from './../../services/backend/backend.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ScoresComponent } from './scores.component';
@@ -8,9 +10,15 @@ describe('ScoresComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScoresComponent ]
+      declarations: [ScoresComponent],
+      imports: [
+        HttpClientModule
+      ],
+      providers: [
+        BackendService
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

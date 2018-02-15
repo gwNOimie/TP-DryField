@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GameIntroComponent } from './game-intro.component';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 describe('GameIntroComponent', () => {
   let component: GameIntroComponent;
@@ -8,9 +9,14 @@ describe('GameIntroComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameIntroComponent ]
+      declarations: [
+        GameIntroComponent
+      ],
+      providers: [
+        NgbActiveModal
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
