@@ -15,7 +15,7 @@ class ScoreController {
             if (err) {
                 res.status(500).send(err)
             } else {
-                console.log('Game saved successfuly !');
+                console.log('Game saved successfuly !', result);
                 res.send('Game saved.')
             }
         })

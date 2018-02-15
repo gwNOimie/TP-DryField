@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 var score = require('./routes/scoreRoutes');
 
-var mongoose =  require('./db/db');
+require('./db/db');
 
 var app = express();
 

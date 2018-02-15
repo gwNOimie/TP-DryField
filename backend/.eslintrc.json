@@ -1,7 +1,8 @@
 {
     "env": {
         "es6": true,
-        "node": true
+        "node": true,
+        "mocha": true
     },
     "extends": "eslint:recommended",
     "rules": {
@@ -71,20 +72,20 @@
         ],
         "indent": "off",
         "indent-legacy": "off",
-        "init-declarations": "error",
+        "init-declarations": "off",
         "jsx-quotes": "error",
         "key-spacing": "error",
         "keyword-spacing": [
             "error",
             {
-                "after": false,
+                "after": true,
                 "before": true
             }
         ],
         "line-comment-position": "error",
         "linebreak-style": [
             "error",
-            "windows"
+            "unix"
         ],
         "lines-around-comment": "error",
         "lines-around-directive": "error",
@@ -112,6 +113,7 @@
         "no-caller": "error",
         "no-catch-shadow": "error",
         "no-confusing-arrow": "error",
+        "no-console": "off",
         "no-continue": "error",
         "no-div-regex": "error",
         "no-duplicate-imports": "error",
