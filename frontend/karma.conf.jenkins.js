@@ -70,21 +70,3 @@ module.exports = function (config) {
     singleRun: true
   });
 };
-module.exports = function (config) {
-  // Example set of browsers to run on Sauce Labs
-  // Check out https://saucelabs.com/platforms for all browser/platform combos
-
-
-  config.set({
-
-    // The rest of your karma config is here
-    // ...
-    sauceLabs: {
-      testName: 'Web App Unit Tests'
-    },
-    customLaunchers: customLaunchers,
-    browsers: Object.keys(customLaunchers),
-    reporters: ['dots', 'saucelabs'],
-    singleRun: true
-  })
-}
