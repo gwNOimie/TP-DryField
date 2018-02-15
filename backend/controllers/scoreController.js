@@ -1,6 +1,9 @@
-const Score = require('../models/scoreModel');
+let Score;
 
 class ScoreController {
+    constructor(score) {
+        Score = score;
+    }
 
     saveScore(req, res) {
         const playerName = req.body.playerName;
@@ -8,15 +11,15 @@ class ScoreController {
 
         var score = new Score({ name: playerName, score: playerScore });
         score.save((err, result) => {
-            if(err) res.status(500).send(err);
-            console.log('Game saved successfuly ====> '+ result);
+            if (err) res.status(500).send(err);
+            console.log('Game saved successfuly ====> ' + result);
             res.send('Game saved.')
         })
     }
 
     getScore(req, res) {
         Score.find((err, result) => {
-            if(err) res.status(500).send(err);
+            if (err) res.status(500).send(err);
             res.json(result);
         })
     }

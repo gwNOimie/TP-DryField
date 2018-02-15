@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const ScoreController = require('../controllers/scoreController');
-const scoreController = new ScoreController();
+const Score = require('../models/scoreModel');
+const scoreController = new ScoreController(Score);
 
 /* GET the scores */
 router.get('/', scoreController.getScore);
