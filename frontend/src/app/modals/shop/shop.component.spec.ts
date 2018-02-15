@@ -1,6 +1,9 @@
+import { GameService } from './../../services/game/game.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShopComponent } from './shop.component';
+import { FormsModule } from '@angular/forms';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 describe('ShopComponent', () => {
   let component: ShopComponent;
@@ -8,9 +11,17 @@ describe('ShopComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShopComponent ]
+      declarations: [ShopComponent],
+      imports: [
+        FormsModule,
+        NgbModule.forRoot(),
+      ],
+      providers: [
+        NgbActiveModal,
+        GameService
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
