@@ -30,8 +30,8 @@ describe('get scores', () => {
         }
         // on mock le modèle (mongoose model) à passer au controller
         const score = {
-            find(callback) {
-                callback(null, listScores);
+            find() {
+                return Promise.resolve(listScores);
             }
         }
         const scoreController = new ScoreController(score);
@@ -54,7 +54,7 @@ describe('save scores', () => {
         };
         class Score {
             constructor(obj) {
-                obj.save = (callback) => callback(null, Promise.resolve())
+                obj.save = () => Promise.resolve();
                 return obj;
             }
         }
@@ -81,7 +81,7 @@ describe('save scores', () => {
         }
         class Score {
             constructor(obj) {
-                obj.save = (callback) => callback('error')
+                obj.save = () => Promise.reject('error');
                 return obj;
             }
         }
