@@ -1,10 +1,16 @@
-<table *ngIf="orderedScores">
-  <tr>
-    <th>Joueur</th>
-    <th>Score</th>
-  </tr>
-  <tr *ngFor="let score of orderedScores">
-    <td>{{score.name}}</td>
-    <td>{{score.score}}</td>
-  </tr>
+<table class="table" *ngIf="orderedScores">
+  <thead class="thead-dark">
+    <tr>
+      <th>Joueur</th>
+      <th>Score</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let score of orderedScores">
+      <td>{{score.name}}</td>
+      <td>{{score.score}}</td>
+      <th>{{score.date | date:'dd-MM-yyyy'}}</th>
+    </tr>
+  </tbody>
 </table>
