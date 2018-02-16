@@ -7,8 +7,8 @@ class ScoreController {
     }
 
     saveScore(req, res) {
-        const playerName = req.body.playerName;
-        const playerScore = req.body.playerScore;
+        const playerName = req.body.name;
+        const playerScore = req.body.score;
 
         var score = new Score({ name: playerName, score: playerScore });
         score.save().then((result) => {
