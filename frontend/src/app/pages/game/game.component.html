@@ -28,7 +28,7 @@
               Temps restant avant recolte : {{harvestTime - field.age}}
             </div>
             <div class="row mt-5">
-              Reserve d'eau : {{field.water | round}}
+              Reserve d'eau : {{field.water}}
             </div>
             <div *ngIf="field.isAlive && field.age < harvestTime" class="row mt-5">
               <button class="btn btn-primary" disabled>En cours de pousse</button>

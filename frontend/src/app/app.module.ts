@@ -17,7 +17,6 @@ import { RoutingModule } from './modules/routing/routing.module';
 import { GameService } from './services/game/game.service';
 import { BackendService } from './services/backend/backend.service';
 import { FormsModule } from '@angular/forms';
-import { RoundPipe } from './pipes/round.pipe';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import { RoundPipe } from './pipes/round.pipe';
     ScoresComponent,
     ShopComponent,
     HomeComponent,
-    Page404Component,
-    RoundPipe
+    Page404Component
   ],
   entryComponents: [
     GameIntroComponent,
