@@ -30,8 +30,5 @@
   "bugs": {
     "url": "https://github.com/gwNOimie/TP-DryField/issues"
   },
-  "homepage": "https://github.com/gwNOimie/TP-DryField#readme",
-  "devDependencies": {
-    "karma-sauce-launcher": "^1.2.0"
-  }
+  "homepage": "https://github.com/gwNOimie/TP-DryField#readme"
 }

@@ -9,10 +9,10 @@ export class BackendService {
   ) { }
 
   getScores() {
-    return this.http.get('localhost:3000/scores').toPromise();
+    return this.http.get('http://localhost:3000/scores').toPromise();
   }
 
   saveScore(score, name) {
-    return this.http.post('localhost:3000/scores', { score, name }).toPromise();
+    return this.http.post('http://localhost:3000/scores', { score, name }).toPromise();
   }
 }

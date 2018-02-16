@@ -92,7 +92,7 @@ export class GameService {
       }
       this._fields.next(fields);
       this._playTime.next(this._playTime.getValue() + 1);
-      this.consumption += 1 / 900;
+      this.consumption += 1 / 100;
     }, 1000);
   }
 
