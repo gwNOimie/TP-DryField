@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "lint": "./node_modules/.bin/eslint ./ path",
-    "test": "node node_modules\\mocha\\bin\\mocha test\\unit"
+    "test": "./node_modules/.bin/mocha test/unit --recursive",
+    "test-win": "node node_modules\\mocha\\bin\\mocha test\\unit"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
