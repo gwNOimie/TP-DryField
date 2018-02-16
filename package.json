@@ -18,8 +18,7 @@
     "backLint": "cd backend && npm run lint",
     "build": "echo \"Nothing to build on root\"",
     "postbuild": "npm run frontBuild",
-    "frontBuild": "cd frontend && npm run build",
-    "backBuild": "cd backend && npm run build"
+    "frontBuild": "cd frontend && npm run build"
   },
   "repository": {
     "type": "git",
