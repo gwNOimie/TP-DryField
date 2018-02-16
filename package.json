@@ -18,7 +18,9 @@
     "backLint": "cd backend && npm run lint",
     "build": "echo \"Nothing to build on root\"",
     "postbuild": "npm run frontBuild",
-    "frontBuild": "cd frontend && npm run build"
+    "frontBuild": "cd frontend && npm run build",
+    "docker:start": "docker-compose up -d",
+    "docker:stop": "docker-compose down"
   },
   "repository": {
     "type": "git",
