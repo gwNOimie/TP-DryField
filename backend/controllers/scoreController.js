@@ -21,12 +21,10 @@ class ScoreController {
 
 
     getScore(req, res) {
-        Score.find((err, result) => {
-            if (err) {
-                res.status(500).send(err);
-            } else {
-                res.json(result);
-            }
+        Score.find().then((result) => {
+            res.json(result);
+        }).catch((err) => {
+            res.status(500).send(err)
         })
     }
 }
