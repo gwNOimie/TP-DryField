@@ -9,31 +9,31 @@ module.exports = function (config) {
       platform: 'Windows 7',
       version: '35'
     },
-    sl_firefox: {
-      base: 'SauceLabs',
-      browserName: 'firefox',
-      version: '30'
-    },
-    sl_ios_safari: {
-      base: 'SauceLabs',
-      browserName: 'iphone',
-      platform: 'OS X 10.9',
-      version: '7.1'
-    },
-    sl_ie_11: {
-      base: 'SauceLabs',
-      browserName: 'internet explorer',
-      platform: 'Windows 8.1',
-      version: '11'
-    },
-    sl_android: {
-      base: 'SauceLabs',
-      browserName: 'Browser',
-      platform: 'Android',
-      version: '4.4',
-      deviceName: 'Samsung Galaxy S3 Emulator',
-      deviceOrientation: 'portrait'
-    }
+    // sl_firefox: {
+    //   base: 'SauceLabs',
+    //   browserName: 'firefox',
+    //   version: '30'
+    // },
+    // sl_ios_safari: {
+    //   base: 'SauceLabs',
+    //   browserName: 'iphone',
+    //   platform: 'OS X 10.9',
+    //   version: '7.1'
+    // },
+    // sl_ie_11: {
+    //   base: 'SauceLabs',
+    //   browserName: 'internet explorer',
+    //   platform: 'Windows 8.1',
+    //   version: '11'
+    // },
+    // sl_android: {
+    //   base: 'SauceLabs',
+    //   browserName: 'Browser',
+    //   platform: 'Android',
+    //   version: '4.4',
+    //   deviceName: 'Samsung Galaxy S3 Emulator',
+    //   deviceOrientation: 'portrait'
+    // }
   }
 
   config.set({
@@ -66,7 +66,9 @@ module.exports = function (config) {
       testName: 'Web App Unit Tests'
     },
     customLaunchers: customLaunchers,
-    browsers: Object.keys(customLaunchers),
+    browsers: [
+      Object.keys(customLaunchers)
+    ],
     singleRun: true
   });
 };
